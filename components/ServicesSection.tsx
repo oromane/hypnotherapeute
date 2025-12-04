@@ -1,0 +1,76 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Brain, Leaf, Sparkles, ArrowRight } from "lucide-react"
+import Link from "next/link"
+
+export function ServicesSection() {
+    const services = [
+        {
+            title: "Hypnose Ericksonienne",
+            description:
+                "Consultations individuelles pour traiter vos problématiques émotionnelles et comportementales",
+            Icon: Brain,
+        },
+        {
+            title: "Sophrologie",
+            description: "Séances de détente et de développement personnel pour améliorer votre bien-être",
+            Icon: Leaf,
+        },
+        {
+            title: "Coaching & Access Bars®",
+            description: "Accompagnement sur mesure pour atteindre vos objectifs et libérer votre potentiel",
+            Icon: Sparkles,
+        },
+    ]
+
+    return (
+        <section className="py-20 px-4">
+            <div className="max-w-6xl mx-auto">
+                <h2 className="text-4xl font-serif font-bold text-foreground mb-4 text-center">Mes prestations</h2>
+                <p className="text-lg text-muted-foreground text-center mb-12">
+                    Une gamme complète d'accompagnements adaptés à vos besoins
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                    {services.map((service, idx) => (
+                        <motion.div
+                            key={idx}
+                            whileHover={{ y: -8 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="group relative bg-card/50 backdrop-blur-sm border border-border p-8 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+
+                            <div className="relative z-10">
+                                <div className="mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 inline-block text-primary">
+                                    <service.Icon className="w-10 h-10" />
+                                </div>
+                                <h3 className="text-xl font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                                    {service.title}
+                                </h3>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    {service.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="text-center mt-12">
+                    <Link
+                        href="/prestations"
+                        className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+                    >
+                        Voir toutes les prestations
+                        <ArrowRight size={18} />
+                    </Link>
+                </div>
+            </div>
+        </section>
+    )
+}

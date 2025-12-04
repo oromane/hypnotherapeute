@@ -1,0 +1,57 @@
+import { defineField, defineType } from 'sanity'
+import { Activity } from 'lucide-react'
+
+export const systemLog = defineType({
+    name: 'systemLog',
+    title: 'System Logs',
+    type: 'document',
+    icon: Activity,
+    fields: [
+        defineField({
+            name: 'level',
+            title: 'Level',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Info', value: 'info' },
+                    { title: 'Warning', value: 'warn' },
+                    { title: 'Error', value: 'error' },
+                ],
+            },
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'message',
+            title: 'Message',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'context',
+            title: 'Context',
+            type: 'text',
+            description: 'JSON string of additional context',
+        }),
+        defineField({
+            name: 'timestamp',
+            title: 'Timestamp',
+            type: 'datetime',
+            initialValue: () => new Date().toISOString(),
+            validation: (Rule) => Rule.required(),
+        }),
+    ],
+    preview: {
+        select: {
+            title: 'message',
+            subtitle: 'timestamp',
+            level: 'level',
+        },
+        prepare({ title, subtitle, level }) {
+            const emoji = level === 'error' ? '🔴' : level === 'warn' ? 'Vk' : '🔵'
+            return {
+                title: `${emoji} ${title}`,
+                subtitle: new Date(subtitle).toLocaleString(),
+            }
+        },
+    },
+})

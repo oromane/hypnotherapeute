@@ -1,0 +1,27 @@
+import { defineField, defineType } from 'sanity'
+
+export const legalPages = defineType({
+    name: 'legalPages',
+    title: 'Pages Légales',
+    type: 'document',
+    fields: [
+        defineField({
+            name: 'mentionsLegales',
+            title: 'Mentions Légales',
+            type: 'blockContent',
+            description: 'Contenu de la page Mentions Légales',
+        }),
+        defineField({
+            name: 'politiqueConfidentialite',
+            title: 'Politique de Confidentialité',
+            type: 'blockContent',
+            description: 'Contenu de la page Politique de Confidentialité',
+        }),
+        defineField({
+            name: 'cgu',
+            title: 'Conditions Générales d\'Utilisation (CGU)',
+            type: 'blockContent',
+            description: 'Contenu de la page CGU',
+        }),
+    ],
+})

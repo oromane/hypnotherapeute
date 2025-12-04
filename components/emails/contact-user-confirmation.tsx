@@ -1,0 +1,28 @@
+// components/emails/contact-user-confirmation.tsx
+
+import * as React from "react"
+
+interface UserEmailProps {
+  firstName: string
+}
+
+export const ContactUserConfirmation: React.FC<Readonly<UserEmailProps>> = ({ firstName }) => (
+  <div>
+    <h1>Merci pour votre message, {firstName} !</h1>
+    <p>
+      Nous avons bien reçu votre demande de contact et nous vous répondrons dans les plus brefs
+      délais (généralement sous 24h).
+    </p>
+    <p>
+      Si votre demande est urgente, n'hésitez pas à nous contacter par téléphone au +33 (0) 1 23 45
+      67 89.
+    </p>
+    <br />
+    <p>Bien cordialement,</p>
+    <p>
+      <strong>L'équipe Classe et Nature</strong>
+    </p>
+  </div>
+)
+
+export default ContactUserConfirmation

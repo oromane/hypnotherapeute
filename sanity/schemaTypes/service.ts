@@ -1,0 +1,78 @@
+import { defineField, defineType } from 'sanity'
+
+export const service = defineType({
+    name: 'service',
+    title: 'Prestation',
+    type: 'document',
+    fields: [
+        defineField({
+            name: 'title',
+            title: 'Titre',
+            type: 'string',
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+                source: 'title',
+                maxLength: 96,
+            },
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'category',
+            title: 'Catégorie',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Accompagnement personnel', value: 'Accompagnement personnel' },
+                    { title: 'Bien-être émotionnel', value: 'Bien-être émotionnel' },
+                    { title: 'Bien-être physique', value: 'Bien-être physique' },
+                    { title: 'Développement collectif', value: 'Développement collectif' },
+                    { title: 'Développement personnel', value: 'Développement personnel' },
+                    { title: 'Bien-être mental', value: 'Bien-être mental' },
+                    { title: 'Accompagnement familial', value: 'Accompagnement familial' },
+                    { title: 'Performance personnelle', value: 'Performance personnelle' },
+                    { title: 'Bien-être holistique', value: 'Bien-être holistique' },
+                ],
+            },
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'excerpt',
+            title: 'Description courte',
+            type: 'text',
+            rows: 3,
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: 'content',
+            title: 'Contenu',
+            type: 'blockContent',
+        }),
+        defineField({
+            name: 'seo',
+            title: 'SEO',
+            type: 'object',
+            fields: [
+                defineField({
+                    name: 'metaTitle',
+                    title: 'Meta Title',
+                    type: 'string',
+                    description: 'Titre pour les moteurs de recherche (max 60 caractères). Inclure le mot-clé principal et "Elisabeth DUCHESNE".',
+                    validation: (Rule) => Rule.max(60).warning('Le titre devrait faire moins de 60 caractères.'),
+                }),
+                defineField({
+                    name: 'metaDescription',
+                    title: 'Meta Description',
+                    type: 'text',
+                    rows: 3,
+                    description: 'Description pour les moteurs de recherche (max 160 caractères). Inciter au clic.',
+                    validation: (Rule) => Rule.max(160).warning('La description devrait faire moins de 160 caractères.'),
+                }),
+            ],
+        }),
+    ],
+})

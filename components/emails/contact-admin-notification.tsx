@@ -1,0 +1,48 @@
+// components/emails/contact-admin-notification.tsx
+
+import * as React from "react"
+
+interface AdminEmailProps {
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string
+  subject: string
+  message: string
+}
+
+export const ContactAdminNotification: React.FC<Readonly<AdminEmailProps>> = ({
+  firstName,
+  lastName,
+  email,
+  phone,
+  subject,
+  message,
+}) => (
+  <div>
+    <h1>Nouveau message de contact</h1>
+    <p>Vous avez reçu un nouveau message depuis le site Classe et Nature.</p>
+    <hr />
+    <h2>Détails du contact :</h2>
+    <ul>
+      <li>
+        <strong>Nom :</strong> {firstName} {lastName}
+      </li>
+      <li>
+        <strong>Email :</strong> {email}
+      </li>
+      <li>
+        <strong>Téléphone :</strong> {phone || "Non fourni"}
+      </li>
+    </ul>
+    <hr />
+    <h2>Message :</h2>
+    <p>
+      <strong>Sujet :</strong> {subject}
+    </p>
+    {/* Remplace les sauts de ligne par des <br> pour un affichage correct dans l'email */}
+    <p dangerouslySetInnerHTML={{ __html: message.replace(/\n/g, "<br />") }} />
+  </div>
+)
+
+export default ContactAdminNotification

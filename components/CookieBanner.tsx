@@ -1,0 +1,59 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { X } from "lucide-react"
+
+export function CookieBanner() {
+    const [isVisible, setIsVisible] = useState(false)
+
+    useEffect(() => {
+        const consent = localStorage.getItem("cookie-consent")
+        if (!consent) {
+            setIsVisible(true)
+        }
+    }, [])
+
+    const handleAccept = () => {
+        localStorage.setItem("cookie-consent", "accepted")
+        setIsVisible(false)
+    }
+
+    const handleRefuse = () => {
+        localStorage.setItem("cookie-consent", "refused")
+        setIsVisible(false)
+    }
+
+    if (!isVisible) return null
+
+    return (
+        <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border p-4 shadow-lg z-50 animate-in slide-in-from-bottom duration-500">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="text-sm text-muted-foreground flex-1">
+                    <p>
+                        Nous utilisons des cookies pour améliorer votre expérience. En continuant à naviguer sur ce site, vous
+                        acceptez notre{" "}
+                        <Link href="/politique-de-confidentialite" className="text-primary underline hover:text-primary/80">
+                            politique de confidentialité
+                        </Link>
+                        .
+                    </p>
+                </div>
+                <div className="flex gap-4">
+                    <button
+                        onClick={handleRefuse}
+                        className="px-4 py-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        Refuser
+                    </button>
+                    <button
+                        onClick={handleAccept}
+                        className="px-6 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity"
+                    >
+                        Accepter
+                    </button>
+                </div>
+            </div>
+        </div>
+    )
+}

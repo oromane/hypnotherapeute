@@ -1,0 +1,37 @@
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { ArrowRight } from "lucide-react"
+import { getSeoSettings } from "@/lib/sanity-queries"
+
+export async function generateMetadata() {
+    const seo = await getSeoSettings()
+    return {
+        title: seo?.sophrologie?.metaTitle || "Sophrologie | Elisabeth DUCHESNE",
+        description: seo?.sophrologie?.metaDescription || "Séances de sophrologie pour la gestion du stress et le bien-être.",
+    }
+}
+
+export default function SophrologiePage() {
+    return (
+        <>
+            <Header />
+            <main>
+                <section className="bg-muted py-20 px-4">
+                    <div className="max-w-6xl mx-auto text-center">
+                        <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Sophrologie</h1>
+                        <p className="text-xl text-muted-foreground">
+                            Harmonisez votre corps et votre esprit
+                        </p>
+                    </div>
+                </section>
+                <section className="py-20 px-4">
+                    <div className="max-w-3xl mx-auto prose prose-lg">
+                        <p>La sophrologie est une méthode psychocorporelle...</p>
+                        {/* Placeholder content */}
+                    </div>
+                </section>
+            </main>
+            <Footer />
+        </>
+    )
+}
