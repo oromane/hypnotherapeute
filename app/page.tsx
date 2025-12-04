@@ -3,14 +3,24 @@ import { Footer } from "@/components/footer"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { getSeoSettings } from "@/lib/sanity-queries"
-import { Hero3D } from "@/components/Hero3D"
-import { ServicesSection } from "@/components/ServicesSection"
+import dynamic from "next/dynamic"
+
+import { DynamicHero } from "@/components/DynamicHero"
+
+const ServicesSection = dynamic(
+  () => import("@/components/ServicesSection").then((mod) => mod.ServicesSection),
+  {
+    loading: () => <div className="h-96 bg-muted/20 animate-pulse" />,
+  },
+)
 
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
     title: seo?.home?.metaTitle || "Elisabeth DUCHESNE - Hypnothérapeute & Sophrologue",
-    description: seo?.home?.metaDescription || "Hypnose Ericksonienne, Sophrologie et Coaching à Pomerols (34) et Paris 16e.",
+    description:
+      seo?.home?.metaDescription ||
+      "Hypnose Ericksonienne, Sophrologie et Coaching à Pomerols (34) et Paris 16e.",
   }
 }
 
@@ -20,10 +30,9 @@ export default function Home() {
       <Header />
       <main>
         {/* Hero Section */}
-        {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
           {/* 3D Background */}
-          <Hero3D />
+          <DynamicHero />
 
           <div className="relative z-10 max-w-4xl text-center">
             <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm text-sm font-medium text-primary animate-fade-in">
