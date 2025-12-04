@@ -4,15 +4,11 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { getSeoSettings } from "@/lib/sanity-queries"
 import dynamic from "next/dynamic"
+import Image from "next/image"
 
 import { DynamicHero } from "@/components/DynamicHero"
 
-const ServicesSection = dynamic(
-  () => import("@/components/ServicesSection").then((mod) => mod.ServicesSection),
-  {
-    loading: () => <div className="h-96 bg-muted/20 animate-pulse" />,
-  },
-)
+import { ServicesSection } from "@/components/ServicesSection"
 
 export async function generateMetadata() {
   const seo = await getSeoSettings()
@@ -99,11 +95,14 @@ export default function Home() {
                 <ArrowRight size={18} />
               </Link>
             </div>
-            <div className="bg-muted rounded-lg h-96 flex items-center justify-center">
-              <img
+            <div className="bg-muted rounded-lg h-96 flex items-center justify-center overflow-hidden relative">
+              <Image
                 src="/professional-therapist-portrait.jpg"
                 alt="Elisabeth DUCHESNE"
-                className="w-full h-full object-cover rounded-lg"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={false}
               />
             </div>
           </div>

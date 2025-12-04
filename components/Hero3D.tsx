@@ -21,7 +21,7 @@ function Blob({ position, color, speed }: { position: [number, number, number], 
     return (
         <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
             <mesh ref={mesh} position={position}>
-                <sphereGeometry args={[1, 64, 64]} />
+                <sphereGeometry args={[1, 32, 32]} />
                 <meshPhysicalMaterial
                     color={color}
                     roughness={0.1}
