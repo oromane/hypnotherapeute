@@ -108,4 +108,4 @@ Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 ## 📄 Licence
 
 Projet développé pour Elisabeth Duchesne. Tous droits réservés.
-Développé par [Romane](https://github.com/oromane).
+Développé par [Oromane](https://github.com/oromane).
