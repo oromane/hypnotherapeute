@@ -37,11 +37,11 @@ interface Service {
 }
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  console.log("ServicePage slug:", slug)
+  // logging removed
   const service: Service = await getService(slug)
-  console.log("ServicePage fetched service:", service ? service.title : "null")
+  // logging removed
   if (!service) {
-    console.log("Service not found, rendering 404")
+    // logging removed
     notFound()
   }
   return (

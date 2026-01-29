@@ -20,7 +20,7 @@ export async function GET() {
     const approvedTestimonials = testimonials.filter((t) => t.approved)
     return NextResponse.json(approvedTestimonials, { status: 200 })
   } catch (error) {
-    console.error("Error fetching testimonials:", error)
+    // error logging removed
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       { status: 201 },
     )
   } catch (error) {
-    console.error("Error creating testimonial:", error)
+    // error logging removed
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 }

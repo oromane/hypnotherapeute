@@ -2,10 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArrowRight, Calendar } from "lucide-react"
 import Link from "next/link"
-export const metadata = {
-  title: "Blog | Classe et Nature",
-  description: "Conseils, articles et ressources sur l'hypnothérapie et le développement personnel",
-}
+
 const blogPosts = [
   {
     id: 1,
@@ -77,9 +74,8 @@ export default function BlogPage() {
               {categories.map((cat, idx) => (
                 <button
                   key={idx}
-                  className={`px-4 py-2 rounded-full transition-all ${
-                    idx === 0 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-border"
-                  }`}
+                  className={`px-4 py-2 rounded-full transition-all ${idx === 0 ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-border"
+                    }`}
                 >
                   {cat}
                 </button>
