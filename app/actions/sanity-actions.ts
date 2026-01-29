@@ -1,49 +1,1 @@
-'use server'
-
-import { createClient } from 'next-sanity'
-import { env } from '@/lib/env'
-import { revalidatePath } from 'next/cache'
-
-const writeClient = createClient({
-    projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: env.NEXT_PUBLIC_SANITY_DATASET,
-    apiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION,
-    token: process.env.SANITY_API_TOKEN,
-    useCdn: false,
-})
-
-export async function toggleFeatured(id: string, currentState: boolean) {
-    try {
-        await writeClient.patch(id).set({ isFeatured: !currentState }).commit()
-        revalidatePath('/admin')
-        revalidatePath('/actualites')
-        return { success: true }
-    } catch (error) {
-        console.error('Error toggling featured status:', error)
-        return { success: false, error }
-    }
-}
-
-export async function togglePublished(id: string, currentState: boolean) {
-    try {
-        await writeClient.patch(id).set({ isPublished: !currentState }).commit()
-        revalidatePath('/admin')
-        revalidatePath('/actualites')
-        return { success: true }
-    } catch (error) {
-        console.error('Error toggling published status:', error)
-        return { success: false, error }
-    }
-}
-
-export async function deleteArticle(id: string) {
-    try {
-        await writeClient.delete(id)
-        revalidatePath('/admin')
-        revalidatePath('/actualites')
-        return { success: true }
-    } catch (error) {
-        console.error('Error deleting article:', error)
-        return { success: false, error }
-    }
-}
+'use server'import { createClient } from 'next-sanity'import { env } from '@/lib/env'import { revalidatePath } from 'next/cache'const writeClient = createClient({    projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,    dataset: env.NEXT_PUBLIC_SANITY_DATASET,    apiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION,    token: process.env.SANITY_API_TOKEN,    useCdn: false,})export async function toggleFeatured(id: string, currentState: boolean) {    try {        await writeClient.patch(id).set({ isFeatured: !currentState }).commit()        revalidatePath('/admin')        revalidatePath('/actualites')        return { success: true }    } catch (error) {        console.error('Error toggling featured status:', error)        return { success: false, error }    }}export async function togglePublished(id: string, currentState: boolean) {    try {        await writeClient.patch(id).set({ isPublished: !currentState }).commit()        revalidatePath('/admin')        revalidatePath('/actualites')        return { success: true }    } catch (error) {        console.error('Error toggling published status:', error)        return { success: false, error }    }}export async function deleteArticle(id: string) {    try {        await writeClient.delete(id)        revalidatePath('/admin')        revalidatePath('/actualites')        return { success: true }    } catch (error) {        console.error('Error deleting article:', error)        return { success: false, error }    }}

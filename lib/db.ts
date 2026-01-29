@@ -1,9 +1,3 @@
-// Database connection utilities
-// In a production environment, you would use:
-// - Supabase: @supabase/supabase-js
-// - Neon: @neondatabase/serverless
-// - Or your preferred database provider
-
 interface Booking {
   id: string
   service: string
@@ -17,7 +11,6 @@ interface Booking {
   status: "pending" | "confirmed" | "completed" | "cancelled"
   createdAt: Date
 }
-
 interface Contact {
   id: string
   firstName: string
@@ -28,7 +21,6 @@ interface Contact {
   message: string
   createdAt: Date
 }
-
 interface Testimonial {
   id: string
   name: string
@@ -38,15 +30,11 @@ interface Testimonial {
   approved: boolean
   createdAt: Date
 }
-
-// Mock in-memory storage (replace with actual database in production)
 export const mockDb = {
   bookings: [] as Booking[],
   contacts: [] as Contact[],
   testimonials: [] as Testimonial[],
 }
-
-// Helper functions
 export function createBooking(data: Omit<Booking, "id" | "createdAt" | "status">) {
   const booking: Booking = {
     ...data,
@@ -57,11 +45,9 @@ export function createBooking(data: Omit<Booking, "id" | "createdAt" | "status">
   mockDb.bookings.push(booking)
   return booking
 }
-
 export function getBookings() {
   return mockDb.bookings
 }
-
 export function updateBookingStatus(id: string, status: Booking["status"]) {
   const booking = mockDb.bookings.find((b) => b.id === id)
   if (booking) {

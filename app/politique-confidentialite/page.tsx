@@ -1,24 +1,19 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-
 export const metadata = {
   title: "Politique de confidentialité | Elisabeth DUCHESNE",
   description: "Politique de confidentialité et protection des données du site Elisabeth DUCHESNE",
 }
-
 export default function PolitiqueConfidentialitePage() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-16 px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Politique de confidentialité</h1>
           </div>
         </section>
-
-        {/* Content */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto space-y-12">
             <div>
@@ -36,7 +31,6 @@ export default function PolitiqueConfidentialitePage() {
                 </ul>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Utilisation des données</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -49,7 +43,6 @@ export default function PolitiqueConfidentialitePage() {
                 </ul>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Protection des données</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -60,7 +53,6 @@ export default function PolitiqueConfidentialitePage() {
                 </p>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Partage des données</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -71,7 +63,6 @@ export default function PolitiqueConfidentialitePage() {
                 </p>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Vos droits</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -88,7 +79,6 @@ export default function PolitiqueConfidentialitePage() {
                 </p>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Cookies</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -98,7 +88,6 @@ export default function PolitiqueConfidentialitePage() {
                 </p>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Modifications de cette politique</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -108,7 +97,6 @@ export default function PolitiqueConfidentialitePage() {
                 </p>
               </div>
             </div>
-
             <div>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Contact</h2>
               <div className="space-y-3 text-muted-foreground">
@@ -120,7 +108,6 @@ export default function PolitiqueConfidentialitePage() {
                 </p>
               </div>
             </div>
-
             <div className="bg-muted rounded-lg p-6 text-sm text-muted-foreground">
               <p>Dernière mise à jour : novembre 2024</p>
             </div>

@@ -1,4 +1,3 @@
-// https://github.com/oromane
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArrowRight, ArrowLeft } from "lucide-react"
@@ -9,8 +8,6 @@ import { PortableText } from "@portabletext/react"
 import { components } from "@/components/sanity/PortableTextComponents"
 import { urlFor } from "@/lib/sanity-image"
 import PageTransition from "@/components/PageTransition"
-
-// L'interface doit correspondre à la base de données
 export interface Article {
   _id: string
   slug: string
@@ -25,36 +22,21 @@ export interface Article {
   content: any
   publishedAt: string
 }
-
-// ==========================================================
-// Fonctions de récupération des données depuis Sanity
-// ==========================================================
-
-// Note: getPost et getPosts sont importés depuis @/lib/sanity-queries
-
-// ==========================================================
-// CORRECTION 1 : 'params' est maintenant "await"
-// ==========================================================
 export async function generateMetadata(
-  // La signature reçoit des props qui contiennent une promesse 'params'
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  const actualParams = await params // ⬅️ On "déballe" la promesse ici
-  const article = await getPost(actualParams.slug) // On utilise la valeur déballée
-
+  const actualParams = await params 
+  const article = await getPost(actualParams.slug) 
   if (!article) {
     return {
       title: "Article non trouvé",
       description: "Cet article n'existe pas ou n'est plus disponible."
     }
   }
-
-  let ogImage = "/images/og-default.jpg" // Image par défaut du site (à créer si besoin)
-
+  let ogImage = "/images/og-default.jpg" 
   if (article.categoryImage) {
     ogImage = urlFor(article.categoryImage).width(1200).height(630).url()
   }
-
   return {
     title: `${article.title} | Elisabeth DUCHESNE`,
     description: article.excerpt,
@@ -81,34 +63,24 @@ export async function generateMetadata(
     },
   }
 }
-
-// ==========================================================
-// CORRECTION 2 : 'params' est "await" ici aussi
-// ==========================================================
 export default async function ArticlePage(
-  // La signature reçoit des props qui contiennent une promesse 'params'
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  const actualParams = await params // ⬅️ On "déballe" la promesse ici
+  const actualParams = await params 
   const article = await getPost(actualParams.slug)
-
   if (!article) {
     notFound()
   }
-
   const allArticles = await getPosts()
   const currentIndex = allArticles.findIndex((a: Article) => a.slug === actualParams.slug)
-
   const relatedArticles = allArticles
     .filter((a: Article) => a.category === article.category && a.slug !== actualParams.slug)
     .slice(0, 3)
-
   return (
     <>
       <Header />
       <PageTransition>
         <main>
-          {/* Article Header */}
           <section className="bg-muted py-16 px-4">
             <div className="max-w-4xl mx-auto">
               <Link
@@ -128,18 +100,13 @@ export default async function ArticlePage(
               </div>
             </div>
           </section>
-
-          {/* Article Content */}
           <section className="py-16 px-4">
             <div className="max-w-3xl mx-auto">
-              {/* Rendu du Portable Text */}
               <div className="prose prose-lg prose-neutral dark:prose-invert max-w-none text-muted-foreground">
                 <PortableText value={article.content} components={components} />
               </div>
             </div>
           </section>
-
-          {/* Author Card */}
           <section className="py-16 px-4 bg-muted">
             <div className="max-w-3xl mx-auto bg-card border border-border rounded-lg p-8">
               <h3 className="text-2xl font-serif font-bold text-foreground mb-2">Elisabeth DUCHESNE</h3>
@@ -157,8 +124,6 @@ export default async function ArticlePage(
               </Link>
             </div>
           </section>
-
-          {/* Related Articles */}
           {relatedArticles.length > 0 && (
             <section className="py-16 px-4">
               <div className="max-w-6xl mx-auto">
@@ -192,8 +157,6 @@ export default async function ArticlePage(
               </div>
             </section>
           )}
-
-          {/* Navigation */}
           <section className="py-12 px-4 border-t border-border">
             <div className="max-w-4xl mx-auto flex items-center justify-between">
               {currentIndex > 0 ? (
@@ -207,7 +170,6 @@ export default async function ArticlePage(
               ) : (
                 <div></div>
               )}
-
               {currentIndex < allArticles.length - 1 ? (
                 <Link
                   href={`/actualites/${allArticles[currentIndex + 1].slug}`}
@@ -221,7 +183,6 @@ export default async function ArticlePage(
               )}
             </div>
           </section>
-
         </main>
       </PageTransition>
       <Footer />

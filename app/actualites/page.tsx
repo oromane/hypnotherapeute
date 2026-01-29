@@ -2,7 +2,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { getFeaturedPosts, getCategories, getAllPostsForSearch, getSeoSettings } from "@/lib/sanity-queries"
 import { ActualitesList } from "@/components/ActualitesList"
-
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
@@ -10,15 +9,12 @@ export async function generateMetadata() {
     description: seo?.blog?.metaDescription || "Articles et conseils sur l'hypnose et la sophrologie.",
   }
 }
-
 export default async function ActualitesPage() {
-  // Fetch data on the server
   const [categories, featuredArticles, allPosts] = await Promise.all([
     getCategories(),
     getFeaturedPosts(),
     getAllPostsForSearch(),
   ])
-
   return (
     <>
       <Header />

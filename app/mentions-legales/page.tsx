@@ -3,15 +3,12 @@ import { Footer } from "@/components/footer"
 import { getLegalPages } from "@/lib/sanity-queries"
 import { PortableText } from "@portabletext/react"
 import { components } from "@/components/sanity/PortableTextComponents"
-
 export const metadata = {
   title: "Mentions Légales | Elisabeth DUCHESNE",
   description: "Mentions légales du site d'Elisabeth DUCHESNE, hypnothérapeute et sophrologue.",
 }
-
 export default async function MentionsLegalesPage() {
   const legal = await getLegalPages()
-
   return (
     <>
       <Header />

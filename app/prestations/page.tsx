@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { ArrowRight } from "lucide-react"
 import { getServices, getSeoSettings } from "@/lib/sanity-queries"
 import { PrestationsList } from "@/components/PrestationsList"
-
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
@@ -11,15 +10,12 @@ export async function generateMetadata() {
     description: seo?.prestations?.metaDescription || "Découvrez mes prestations en hypnose et sophrologie.",
   }
 }
-
 export default async function PrestationsPage() {
   const services = await getServices()
-
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Mes prestations</h1>
@@ -28,10 +24,7 @@ export default async function PrestationsPage() {
             </p>
           </div>
         </section>
-
         <PrestationsList initialServices={services} />
-
-        {/* Information sections */}
         <section className="py-20 px-4 bg-muted">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <div className="bg-card border border-border rounded-lg p-8">
@@ -39,13 +32,11 @@ export default async function PrestationsPage() {
               <p className="text-muted-foreground mb-4">Séances personnalisées dans mes cabinets ou à domicile.</p>
               <p className="text-primary font-semibold">Durée : 1h</p>
             </div>
-
             <div className="bg-card border border-border rounded-lg p-8">
               <h3 className="text-2xl font-serif font-bold text-foreground mb-4">Ateliers collectifs</h3>
               <p className="text-muted-foreground mb-4">Pour les particuliers et les entreprises.</p>
               <p className="text-primary font-semibold">Durée : 2h à 2h30</p>
             </div>
-
             <div className="bg-card border border-border rounded-lg p-8">
               <h3 className="text-2xl font-serif font-bold text-foreground mb-4">Consultations à domicile</h3>
               <p className="text-muted-foreground mb-4">Dans un rayon de 30 km autour de Pomerols.</p>
@@ -53,8 +44,6 @@ export default async function PrestationsPage() {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
         <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-4">Prêt à commencer votre accompagnement ?</h2>

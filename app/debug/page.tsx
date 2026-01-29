@@ -1,63 +1,1 @@
-"use client"
-import { client } from "@/lib/sanity"
-import { getPaginatedPosts, getServices, getFeaturedPosts } from "@/lib/sanity-queries"
-import { useState, useEffect } from "react"
-
-export default function DebugPage() {
-    const [postsResult, setPostsResult] = useState<any>(null)
-    const [servicesResult, setServicesResult] = useState<any>(null)
-    const [featuredResult, setFeaturedResult] = useState<any>(null)
-    const [errors, setErrors] = useState<any>({})
-
-    useEffect(() => {
-        // Test getPaginatedPosts
-        getPaginatedPosts(1, 15, "Tous", "")
-            .then(setPostsResult)
-            .catch(e => setErrors((prev: any) => ({ ...prev, posts: e.message })))
-
-        // Test getServices
-        getServices()
-            .then(setServicesResult)
-            .catch(e => setErrors((prev: any) => ({ ...prev, services: e.message })))
-
-        // Test getFeaturedPosts
-        getFeaturedPosts()
-            .then(setFeaturedResult)
-            .catch(e => setErrors((prev: any) => ({ ...prev, featured: e.message })))
-    }, [])
-
-    return (
-        <div className="p-10 font-mono text-sm">
-            <h1 className="text-2xl font-bold mb-4">Deep Debug Sanity</h1>
-
-            <div className="grid gap-8">
-                <div className="p-4 border rounded bg-gray-100">
-                    <h2 className="font-bold mb-2 text-blue-600">getPaginatedPosts</h2>
-                    {errors.posts ? (
-                        <p className="text-red-600 font-bold">{errors.posts}</p>
-                    ) : (
-                        <pre className="max-h-60 overflow-auto">{JSON.stringify(postsResult, null, 2)}</pre>
-                    )}
-                </div>
-
-                <div className="p-4 border rounded bg-gray-100">
-                    <h2 className="font-bold mb-2 text-green-600">getServices</h2>
-                    {errors.services ? (
-                        <p className="text-red-600 font-bold">{errors.services}</p>
-                    ) : (
-                        <pre className="max-h-60 overflow-auto">{JSON.stringify(servicesResult, null, 2)}</pre>
-                    )}
-                </div>
-
-                <div className="p-4 border rounded bg-gray-100">
-                    <h2 className="font-bold mb-2 text-purple-600">getFeaturedPosts</h2>
-                    {errors.featured ? (
-                        <p className="text-red-600 font-bold">{errors.featured}</p>
-                    ) : (
-                        <pre className="max-h-60 overflow-auto">{JSON.stringify(featuredResult, null, 2)}</pre>
-                    )}
-                </div>
-            </div>
-        </div>
-    )
-}
+"use client"import { client } from "@/lib/sanity"import { getPaginatedPosts, getServices, getFeaturedPosts } from "@/lib/sanity-queries"import { useState, useEffect } from "react"export default function DebugPage() {    const [postsResult, setPostsResult] = useState<any>(null)    const [servicesResult, setServicesResult] = useState<any>(null)    const [featuredResult, setFeaturedResult] = useState<any>(null)    const [errors, setErrors] = useState<any>({})    useEffect(() => {        getPaginatedPosts(1, 15, "Tous", "")            .then(setPostsResult)            .catch(e => setErrors((prev: any) => ({ ...prev, posts: e.message })))        getServices()            .then(setServicesResult)            .catch(e => setErrors((prev: any) => ({ ...prev, services: e.message })))        getFeaturedPosts()            .then(setFeaturedResult)            .catch(e => setErrors((prev: any) => ({ ...prev, featured: e.message })))    }, [])    return (        <div className="p-10 font-mono text-sm">            <h1 className="text-2xl font-bold mb-4">Deep Debug Sanity</h1>            <div className="grid gap-8">                <div className="p-4 border rounded bg-gray-100">                    <h2 className="font-bold mb-2 text-blue-600">getPaginatedPosts</h2>                    {errors.posts ? (                        <p className="text-red-600 font-bold">{errors.posts}</p>                    ) : (                        <pre className="max-h-60 overflow-auto">{JSON.stringify(postsResult, null, 2)}</pre>                    )}                </div>                <div className="p-4 border rounded bg-gray-100">                    <h2 className="font-bold mb-2 text-green-600">getServices</h2>                    {errors.services ? (                        <p className="text-red-600 font-bold">{errors.services}</p>                    ) : (                        <pre className="max-h-60 overflow-auto">{JSON.stringify(servicesResult, null, 2)}</pre>                    )}                </div>                <div className="p-4 border rounded bg-gray-100">                    <h2 className="font-bold mb-2 text-purple-600">getFeaturedPosts</h2>                    {errors.featured ? (                        <p className="text-red-600 font-bold">{errors.featured}</p>                    ) : (                        <pre className="max-h-60 overflow-auto">{JSON.stringify(featuredResult, null, 2)}</pre>                    )}                </div>            </div>        </div>    )}

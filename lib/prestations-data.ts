@@ -9,7 +9,6 @@ export interface Prestation {
   durationAndFormat: string
   category: string
 }
-
 export const prestationsData: Prestation[] = [
   {
     id: "1",
@@ -17,7 +16,6 @@ export const prestationsData: Prestation[] = [
     title: "Accompagnement durant la grossesse",
     shortDescription: "Préparez sereinement votre accouchement avec l'hypnose et la sophrologie.",
     fullDescription: `La grossesse est une période de transformation profonde. L'accompagnement par hypnose et sophrologie vous permet de vivre cette expérience avec sérénité et confiance.
-
 Grâce à ces techniques, vous apprenez à gérer les émotions liées à la maternité, à préparer mentalement votre accouchement et à renforcer le lien avec votre bébé. Les séances sont adaptées à chaque trimestre de votre grossesse.`,
     benefits: [
       "Réduction de l'anxiété et du stress liés à la grossesse",
@@ -36,7 +34,6 @@ Grâce à ces techniques, vous apprenez à gérer les émotions liées à la mat
     title: "Addictions",
     shortDescription: "Libérez-vous des dépendances avec des méthodes éprouvées et bienveillantes.",
     fullDescription: `Les addictions (alcool, drogue, jeux vidéo, internet) prennent naissance dans l'inconscient. L'hypnothérapie accède à ce niveau profond pour identifier les causes réelles de votre dépendance et créer un changement durable.
-
 Plutôt que de combattre votre dépendance de manière consciente, nous travaillons à reprogrammer les patterns inconscients qui l'entretiennent.`,
     benefits: [
       "Comprendre les causes réelles de l'addiction",
@@ -55,7 +52,6 @@ Plutôt que de combattre votre dépendance de manière consciente, nous travaill
     title: "Arrêt du tabac",
     shortDescription: "Stoppez la cigarette durablement avec l'hypnose Ericksonienne.",
     fullDescription: `L'arrêt du tabac par hypnose fonctionne car la dépendance au tabac n'est que 10% physique et 90% psychologique. L'hypnose Ericksonienne accède à votre inconscient où réside le véritable attachement à la cigarette.
-
 Les statistiques montrent un taux de succès de 60-70% avec l'hypnose, bien supérieur aux autres méthodes.`,
     benefits: [
       "Élimination des envies de cigarette",
@@ -75,7 +71,6 @@ Les statistiques montrent un taux de succès de 60-70% avec l'hypnose, bien sup�
     title: "Ateliers d'hypnose",
     shortDescription: "Participez à des ateliers collectifs d'hypnose et sophrologie pour particuliers et entreprises.",
     fullDescription: `Les ateliers d'hypnose offrent une expérience collective enrichissante. Que vous soyez particulier ou entreprise, ces sessions vous permettent de découvrir l'hypnose dans un cadre bienveillant et dynamique.
-
 Les ateliers abordent des thématiques spécifiques et combinent théorie, pratique et partage d'expériences.`,
     benefits: [
       "Découverte de l'hypnose en groupe",
@@ -94,7 +89,6 @@ Les ateliers abordent des thématiques spécifiques et combinent théorie, prati
     title: "Confiance en soi",
     shortDescription: "Développez une confiance authentique et durable en vous-même.",
     fullDescription: `La confiance en soi n'est pas innée, elle se construit. Si vous souffrez de doute, de perfectionnisme ou d'imposture, l'hypnose permet d'accéder aux racines de ces croyances limitantes et de les transformer en croyances positives.
-
 Retrouver la confiance c'est accéder à votre véritable potentiel.`,
     benefits: [
       "Identifier et transformer les croyances limitantes",
@@ -113,7 +107,6 @@ Retrouver la confiance c'est accéder à votre véritable potentiel.`,
     title: "Dépression et burn out",
     shortDescription: "Retrouvez l'équilibre et l'énergie face à la dépression ou l'épuisement professionnel.",
     fullDescription: `La dépression et le burn out sont des signaux d'un déséquilibre profond. L'hypnothérapie, combinée avec le coaching de vie, vous aide à identifier les causes, à retrouver votre énergie et à reconstruire une vie équilibrée et épanouissante.
-
 C'est un accompagnement bienveillant vers la guérison.`,
     benefits: [
       "Comprendre les causes de la dépression ou du burn out",
@@ -132,7 +125,6 @@ C'est un accompagnement bienveillant vers la guérison.`,
     title: "Gestion des angoisses",
     shortDescription: "Apprenez à maîtriser vos angoisses et retrouver la sérénité.",
     fullDescription: `Les angoisses sont le symptôme d'une peur inconsciente. L'hypnose vous permet d'accéder à cette source profonde, de la comprendre et de la transformer. Plutôt que de combattre l'angoisse, nous apprenons à vivre avec sérénité.
-
 C'est une approche douce mais profonde du changement.`,
     benefits: [
       "Identifier la source réelle de vos angoisses",
@@ -151,7 +143,6 @@ C'est une approche douce mais profonde du changement.`,
     title: "Hypnose et douleurs",
     shortDescription: "Diminuez la perception de la douleur avec l'hypnose thérapeutique.",
     fullDescription: `La douleur est une perception gérée par notre cerveau. L'hypnose permet de modifier cette perception et de réduire significativement l'intensité de la douleur chronique, qu'elle soit physique ou psychosomatique.
-
 Les médecins et chirurgiens reconnaissent de plus en plus l'hypnose comme un complément efficace à la prise en charge médicale.`,
     benefits: [
       "Réduction de la perception de la douleur",
@@ -170,7 +161,6 @@ Les médecins et chirurgiens reconnaissent de plus en plus l'hypnose comme un co
     title: "Hypnose pour les enfants et adolescents",
     shortDescription: "Accompagnez vos enfants avec une hypnose adaptée à leur âge.",
     fullDescription: `Les enfants et adolescents répondent particulièrement bien à l'hypnose car leur imagination est plus libre. L'hypnose les aide à gérer les émotions difficiles, l'anxiété scolaire, les phobies et à développer leur confiance.
-
 C'est un accompagnement ludique et bienveillant adapté à leur langage et leur capacité.`,
     benefits: [
       "Réduction de l'anxiété scolaire et des examens",
@@ -189,7 +179,6 @@ C'est un accompagnement ludique et bienveillant adapté à leur langage et leur 
     title: "Préparation à un événement important",
     shortDescription: "Préparez-vous mentalement à un entretien, examen ou événement stressant.",
     fullDescription: `Qu'il s'agisse d'un entretien d'embauche, d'un examen, d'une présentation ou d'un événement majeur, la préparation mentale fait toute la différence. L'hypnose renforce votre confiance et votre capacité à performer sous pression.
-
 C'est l'atout secret des champions et des professionnels.`,
     benefits: [
       "Confiance accrue le jour J",
@@ -208,7 +197,6 @@ C'est l'atout secret des champions et des professionnels.`,
     title: "Troubles alimentaires",
     shortDescription: "Réconciliez-vous avec la nourriture et votre rapport au corps.",
     fullDescription: `Les troubles alimentaires (boulimie, restriction, compulsions, anorexie) sont souvent le symptôme d'une souffrance émotionnelle profonde. L'hypnothérapie explore cette souffrance et crée un nouveau rapport à la nourriture et au corps, basé sur l'amour et l'acceptation.
-
 C'est un chemin vers la réconciliation et la liberté.`,
     benefits: [
       "Comprendre les causes émotionnelles des troubles",

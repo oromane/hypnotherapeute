@@ -2,18 +2,15 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import Link from "next/link"
-
 export const metadata = {
   title: "Services | Classe et Nature",
   description: "Découvrez notre gamme complète de services d'hypnothérapie et de coaching",
 }
-
 export default function ServicesPage() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Nos services</h1>
@@ -22,8 +19,6 @@ export default function ServicesPage() {
             </p>
           </div>
         </section>
-
-        {/* Main Services */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto space-y-16">
             {[
@@ -92,8 +87,6 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
-
-        {/* Process Section */}
         <section className="py-20 px-4 bg-muted">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-12 text-center">
@@ -137,8 +130,6 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
-
-        {/* FAQ */}
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-12 text-center">Questions fréquentes</h2>
@@ -165,8 +156,6 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
         <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-4">Prêt à transformer votre vie ?</h2>

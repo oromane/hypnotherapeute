@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { getSeoSettings } from "@/lib/sanity-queries"
 import { ContactForm } from "@/components/ContactForm"
-
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
@@ -11,13 +10,11 @@ export async function generateMetadata() {
     description: seo?.contact?.metaDescription || "Prenez rendez-vous pour une séance d'hypnose ou de sophrologie.",
   }
 }
-
 export default function ContactPage() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Nous contacter</h1>
@@ -26,8 +23,6 @@ export default function ContactPage() {
             </p>
           </div>
         </section>
-
-        {/* Contact Info Cards */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-20">
             <div className="bg-card border border-border rounded-lg p-8 text-center">
@@ -38,7 +33,6 @@ export default function ContactPage() {
               <p className="text-muted-foreground">+33 (0) 1 23 45 67 89</p>
               <p className="text-sm text-muted-foreground mt-1">Lun-Ven: 9h-18h</p>
             </div>
-
             <div className="bg-card border border-border rounded-lg p-8 text-center">
               <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail size={28} />
@@ -47,7 +41,6 @@ export default function ContactPage() {
               <p className="text-muted-foreground">contact@elisabethduchesne.fr</p>
               <p className="text-sm text-muted-foreground mt-1">Réponse en 24h</p>
             </div>
-
             <div className="bg-card border border-border rounded-lg p-8 text-center">
               <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin size={28} />
@@ -57,12 +50,8 @@ export default function ContactPage() {
               <p className="text-sm text-muted-foreground mt-1">Sur rendez-vous</p>
             </div>
           </div>
-
-          {/* Contact Form */}
           <ContactForm />
         </section>
-
-        {/* FAQ */}
         <section className="py-20 px-4 bg-muted">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-12 text-center">Questions fréquentes</h2>

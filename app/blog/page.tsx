@@ -2,12 +2,10 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArrowRight, Calendar } from "lucide-react"
 import Link from "next/link"
-
 export const metadata = {
   title: "Blog | Classe et Nature",
   description: "Conseils, articles et ressources sur l'hypnothérapie et le développement personnel",
 }
-
 const blogPosts = [
   {
     id: 1,
@@ -59,15 +57,12 @@ const blogPosts = [
     readTime: "6 min",
   },
 ]
-
 export default function BlogPage() {
   const categories = ["Tous", "Hypnose", "Bien-être", "Développement personnel"]
-
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Notre Blog</h1>
@@ -76,8 +71,6 @@ export default function BlogPage() {
             </p>
           </div>
         </section>
-
-        {/* Categories */}
         <section className="py-8 px-4 border-b border-border">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-wrap gap-3">
@@ -94,8 +87,6 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
-
-        {/* Blog Posts Grid */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -133,8 +124,6 @@ export default function BlogPage() {
             </div>
           </div>
         </section>
-
-        {/* Newsletter */}
         <section className="py-20 px-4 bg-muted">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">Recevez nos derniers conseils</h2>
@@ -157,8 +146,6 @@ export default function BlogPage() {
             </form>
           </div>
         </section>
-
-        {/* CTA */}
         <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-4">Besoin d'aide maintenant ?</h2>

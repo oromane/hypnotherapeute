@@ -2,29 +2,18 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useEffect } from "react"
-
 export default function BookingPage() {
   useEffect(() => {
     const medoucineUrl = "https://www.medoucine.com/consultation/suresnes/elisabeth-duchesne/4142"
     const newWindow = window.open(medoucineUrl, "_blank")
-    
-    // Facultatif : Si le navigateur bloque l'ouverture automatique, 
-    // l'utilisateur devra cliquer sur le lien ci-dessous.
     if (newWindow) {
       newWindow.focus()
     }
-
-    // Définir un timer pour rediriger l'utilisateur après 5 secondes
     const timer = setTimeout(() => {
-      // Redirige vers la page précédente dans l'historique du navigateur
-      window.history.back() 
-    }, 5000) // 5000 millisecondes = 5 secondes
-
-    // Nettoyage : toujours effacer le timer si le composant est démonté
+      window.history.back()
+    }, 5000)
     return () => clearTimeout(timer)
-
   }, [])
-
   return (
     <>
       <Header />

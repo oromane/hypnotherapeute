@@ -6,28 +6,23 @@ import { PortableText } from "@portabletext/react"
 import { components } from "@/components/sanity/PortableTextComponents"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
-
 export async function generateStaticParams() {
   const services = await getServices()
   return services.map((service: any) => ({
     slug: service.slug,
   }))
 }
-
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const service: Service = await getService(slug)
-
   if (!service) {
     return {}
   }
-
   return {
     title: service.seo?.metaTitle || `${service.title} - Elisabeth DUCHESNE`,
     description: service.seo?.metaDescription || service.excerpt,
   }
 }
-
 interface Service {
   _id: string
   title: string
@@ -40,26 +35,21 @@ interface Service {
     metaDescription?: string
   }
 }
-
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   console.log("ServicePage slug:", slug)
   const service: Service = await getService(slug)
   console.log("ServicePage fetched service:", service ? service.title : "null")
-
   if (!service) {
     console.log("Service not found, rendering 404")
     notFound()
   }
-
   return (
     <>
       <Header />
       <main className="min-h-screen bg-background">
-        {/* Hero Section with Gradient */}
         <section className="relative py-24 px-4 overflow-hidden bg-primary/5">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background/0 via-background/0 to-background"></div>
-
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <Link
               href="/prestations"
@@ -68,22 +58,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <ArrowLeft className="mr-2 h-4 w-4" />
               Retour aux prestations
             </Link>
-
             <span className="block text-primary font-semibold tracking-wider uppercase mb-4 text-sm md:text-base">
               {service.category}
             </span>
-
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
               {service.title}
             </h1>
-
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               {service.excerpt}
             </p>
           </div>
         </section>
-
-        {/* Content Section */}
         <section className="pb-24 px-4">
           <div className="max-w-3xl mx-auto">
             <div className="prose prose-lg md:prose-xl dark:prose-invert mx-auto
@@ -98,8 +83,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <p className="text-muted-foreground italic text-center">Contenu à venir...</p>
               )}
             </div>
-
-            {/* CTA Section */}
             <div className="mt-16 pt-8 border-t border-border text-center">
               <h3 className="text-2xl font-serif font-bold mb-4">Intéressé(e) par cette séance ?</h3>
               <p className="text-muted-foreground mb-8">

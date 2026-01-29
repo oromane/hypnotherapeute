@@ -1,14 +1,1 @@
-"use client"
-
-import dynamic from "next/dynamic"
-
-const Hero3D = dynamic(() => import("./Hero3D").then((mod) => mod.Hero3D), {
-    ssr: false,
-    loading: () => (
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/50 to-purple-50/50 opacity-60" />
-    ),
-})
-
-export function DynamicHero() {
-    return <Hero3D />
-}
+"use client"import dynamic from "next/dynamic"const Hero3D = dynamic(() => import("./Hero3D").then((mod) => mod.Hero3D), {    ssr: false,    loading: () => (        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/50 to-purple-50/50 opacity-60" />    ),})export function DynamicHero() {    return <Hero3D />}

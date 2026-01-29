@@ -5,11 +5,8 @@ import { ArrowRight } from "lucide-react"
 import { getSeoSettings } from "@/lib/sanity-queries"
 import dynamic from "next/dynamic"
 import Image from "next/image"
-
 import { DynamicHero } from "@/components/DynamicHero"
-
 import { ServicesSection } from "@/components/ServicesSection"
-
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
@@ -19,35 +16,27 @@ export async function generateMetadata() {
       "Hypnose Ericksonienne, Sophrologie et Coaching à Pomerols (34) et Paris 16e.",
   }
 }
-
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
-          {/* 3D Background */}
           <DynamicHero />
-
           <div className="relative z-10 max-w-4xl text-center">
             <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm text-sm font-medium text-primary animate-fade-in">
               Cabinet à Pomerols (34) & Paris 16e
             </div>
-
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-foreground mb-6 leading-tight tracking-tight drop-shadow-sm">
               Elisabeth <span className="text-primary">DUCHESNE</span>
             </h1>
-
             <p className="text-2xl md:text-3xl font-serif text-muted-foreground mb-8 font-light">
               Hypnothérapeute & Sophrologue
             </p>
-
             <p className="text-lg md:text-xl text-muted-foreground/80 mb-10 leading-relaxed max-w-2xl mx-auto">
               Révélez votre potentiel grâce à l'Hypnose Ericksonienne, la Sophrologie et le Coaching de vie.
               Une approche bienveillante pour votre transformation.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
                 href="https://www.medoucine.com/consultation/suresnes/elisabeth-duchesne/4142"
@@ -61,7 +50,6 @@ export default function Home() {
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
-
               <Link
                 href="/prestations"
                 className="px-8 py-4 rounded-full font-semibold text-lg border border-border bg-background/50 backdrop-blur-sm hover:bg-background/80 hover:border-primary/50 transition-all duration-300 flex items-center gap-2 group"
@@ -72,8 +60,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* About Snippet */}
         <section className="py-20 px-4 bg-card">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -107,11 +93,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Prestations Preview */}
         <ServicesSection />
-
-        {/* Contact Info */}
         <section className="py-20 px-4 bg-muted">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-12 text-center">Me contacter</h2>
@@ -138,8 +120,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* CTA Section */}
         <section className="py-20 px-4 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-serif font-bold mb-6">Prêt pour votre transformation ?</h2>

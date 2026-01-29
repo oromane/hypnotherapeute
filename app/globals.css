@@ -3,19 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Developed by Romane
- * GitHub: https://github.com/oromane
- * All rights reserved.
- */
+
 
 :root {
   --author: "Romane";
-  /* Sober & Calm Forest Palette */
+
   --background: oklch(0.98 0.01 145);
-  /* Warm pale mint */
+
   --foreground: oklch(0.20 0.06 145);
-  /* Deepest forest green */
+
 
   --card: oklch(0.99 0.005 145);
   --card-foreground: oklch(0.20 0.06 145);
@@ -23,7 +19,7 @@
   --popover: oklch(0.99 0.005 145);
   --popover-foreground: oklch(0.20 0.06 145);
 
-  /* Sober Calm Green - Very dark, stable, reassuring */
+
   --primary: oklch(0.40 0.10 145);
   --primary-foreground: oklch(0.98 0.01 145);
 
@@ -32,7 +28,7 @@
 
   --muted: oklch(0.94 0.03 145);
   --muted-foreground: oklch(0.40 0.08 145);
-  /* Darker moss for better readability */
+
 
   --accent: oklch(0.94 0.03 145);
   --accent-foreground: oklch(0.35 0.10 145);
@@ -41,7 +37,7 @@
   --destructive-foreground: oklch(0.98 0.01 145);
 
   --border: oklch(0.88 0.04 145);
-  /* Slightly stronger border */
+
   --input: oklch(0.90 0.04 145);
   --ring: oklch(0.40 0.10 145);
 
@@ -52,7 +48,7 @@
   --chart-5: oklch(0.769 0.188 70.08);
 
   --radius: 0.75rem;
-  /* Softer, rounder corners */
+
 
   --sidebar: oklch(0.98 0.01 145);
   --sidebar-foreground: oklch(0.20 0.06 145);
@@ -177,7 +173,7 @@
     @apply transition-colors duration-200;
   }
 
-  /* Focus visible for accessibility */
+
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-ring;
   }

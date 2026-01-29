@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { ArrowRight, Check } from "lucide-react"
 import Link from "next/link"
 import { getSeoSettings } from "@/lib/sanity-queries"
-
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
@@ -11,7 +10,6 @@ export async function generateMetadata() {
     description: seo?.prices?.metaDescription || "Consultez les tarifs des consultations d'hypnose et sophrologie",
   }
 }
-
 export default function PricingPage() {
   const plans = [
     {
@@ -54,20 +52,16 @@ export default function PricingPage() {
       recommended: false,
     },
   ]
-
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-20 px-4">
           <div className="max-w-6xl mx-auto text-center">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">Tarifs</h1>
             <p className="text-xl text-muted-foreground">Des tarifs transparents et accessibles pour tous</p>
           </div>
         </section>
-
-        {/* Pricing Cards */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -75,8 +69,8 @@ export default function PricingPage() {
                 <div
                   key={idx}
                   className={`rounded-lg border-2 transition-all overflow-hidden ${plan.recommended
-                      ? "border-primary bg-card shadow-xl scale-105"
-                      : "border-border bg-card hover:shadow-lg"
+                    ? "border-primary bg-card shadow-xl scale-105"
+                    : "border-border bg-card hover:shadow-lg"
                     }`}
                 >
                   {plan.recommended && (
@@ -85,24 +79,21 @@ export default function PricingPage() {
                   <div className="p-8">
                     <h3 className="text-2xl font-serif font-bold text-foreground mb-2">{plan.name}</h3>
                     <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
-
                     <div className="mb-6">
                       <div className="text-5xl font-bold text-primary">{plan.price}€</div>
                       <p className="text-muted-foreground text-sm mt-2">{plan.duration}</p>
                     </div>
-
                     <a
                       href="https://www.medoucine.com/consultation/suresnes/elisabeth-duchesne/4142"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`w-full block text-center py-3 rounded-full font-semibold mb-8 transition-all ${plan.recommended
-                          ? "bg-primary text-primary-foreground hover:opacity-90"
-                          : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                        ? "bg-primary text-primary-foreground hover:opacity-90"
+                        : "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                         }`}
                     >
                       Réserver
                     </a>
-
                     <div className="space-y-4">
                       {plan.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-3">
@@ -115,8 +106,6 @@ export default function PricingPage() {
                 </div>
               ))}
             </div>
-
-            {/* Consultation à domicile */}
             <div className="bg-card border border-border rounded-lg p-8 mb-8">
               <h3 className="text-2xl font-serif font-bold text-foreground mb-6">Consultations à domicile</h3>
               <div className="grid md:grid-cols-2 gap-8">
@@ -132,8 +121,6 @@ export default function PricingPage() {
                 </div>
               </div>
             </div>
-
-            {/* Ateliers */}
             <div className="bg-muted rounded-lg p-8">
               <h3 className="text-2xl font-serif font-bold text-foreground mb-6">Ateliers collectifs</h3>
               <div className="grid md:grid-cols-2 gap-8">
@@ -153,8 +140,6 @@ export default function PricingPage() {
             </div>
           </div>
         </section>
-
-        {/* Information importante */}
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-card border border-border rounded-lg p-8 space-y-6">
@@ -176,8 +161,6 @@ export default function PricingPage() {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
         <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-4">Prêt à commencer ?</h2>

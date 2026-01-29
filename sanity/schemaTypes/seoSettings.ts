@@ -1,54 +1,1 @@
-import { defineField, defineType } from 'sanity'
-
-export const seoSettings = defineType({
-    name: 'seoSettings',
-    title: 'SEO Général',
-    type: 'document',
-    fields: [
-        defineField({
-            name: 'home',
-            title: 'Page Accueil',
-            type: 'object',
-            fields: [
-                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),
-                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),
-            ],
-        }),
-        defineField({
-            name: 'about',
-            title: 'Page À Propos',
-            type: 'object',
-            fields: [
-                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),
-                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),
-            ],
-        }),
-        defineField({
-            name: 'prices',
-            title: 'Page Tarifs',
-            type: 'object',
-            fields: [
-                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),
-                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),
-            ],
-        }),
-        defineField({
-            name: 'contact',
-            title: 'Page Contact',
-            type: 'object',
-            fields: [
-                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),
-                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),
-            ],
-        }),
-        defineField({
-            name: 'sophrologie',
-            title: 'Page Sophrologie',
-            type: 'object',
-            fields: [
-                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),
-                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),
-            ],
-        }),
-    ],
-})
+import { defineField, defineType } from 'sanity'export const seoSettings = defineType({    name: 'seoSettings',    title: 'SEO Général',    type: 'document',    fields: [        defineField({            name: 'home',            title: 'Page Accueil',            type: 'object',            fields: [                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),            ],        }),        defineField({            name: 'about',            title: 'Page À Propos',            type: 'object',            fields: [                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),            ],        }),        defineField({            name: 'prices',            title: 'Page Tarifs',            type: 'object',            fields: [                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),            ],        }),        defineField({            name: 'contact',            title: 'Page Contact',            type: 'object',            fields: [                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),            ],        }),        defineField({            name: 'sophrologie',            title: 'Page Sophrologie',            type: 'object',            fields: [                defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),                defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', rows: 3 }),            ],        }),    ],})

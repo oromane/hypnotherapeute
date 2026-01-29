@@ -3,7 +3,6 @@ import { Footer } from "@/components/footer"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { getSeoSettings } from "@/lib/sanity-queries"
-
 export async function generateMetadata() {
   const seo = await getSeoSettings()
   return {
@@ -11,13 +10,11 @@ export async function generateMetadata() {
     description: seo?.about?.metaDescription || "Découvrez le parcours d'Elisabeth DUCHESNE, hypnothérapeute et sophrologue à Roinville et Paris 16",
   }
 }
-
 export default function ProfilePage() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="bg-muted py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h1 className="text-5xl font-serif font-bold text-foreground mb-4">À propos d'Elisabeth</h1>
@@ -26,13 +23,10 @@ export default function ProfilePage() {
             </p>
           </div>
         </section>
-
-        {/* Bio Section */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-8">Elisabeth DUCHESNE</h2>
             <p className="text-xl font-semibold text-primary mb-8">Hypnothérapeute & Sophrologue</p>
-
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-card border border-border rounded-lg p-6">
                 <h3 className="font-bold text-foreground mb-2">À Pomerols</h3>
@@ -51,7 +45,6 @@ export default function ProfilePage() {
                 <p className="text-primary font-semibold">01 86 65 29 44</p>
               </div>
             </div>
-
             <div className="space-y-8 text-lg text-muted-foreground leading-relaxed">
               <div>
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-4">
@@ -68,7 +61,6 @@ export default function ProfilePage() {
                   service de votre bien-être.
                 </p>
               </div>
-
               <div>
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-4">
                   Parcours de formation et d'expérience
@@ -88,7 +80,6 @@ export default function ProfilePage() {
                   en développement personnel de niveau II, spécialisée dans le Coaching d'équipe et de manager.
                 </p>
               </div>
-
               <div>
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-4">L'hypnose Ericksonienne</h3>
                 <p>
@@ -105,8 +96,6 @@ export default function ProfilePage() {
             </div>
           </div>
         </section>
-
-        {/* Qualifications */}
         <section className="py-20 px-4 bg-card">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-serif font-bold text-foreground mb-12 text-center">Mes qualifications</h2>
@@ -133,15 +122,12 @@ export default function ProfilePage() {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
         <section className="py-16 px-4 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-4">Besoin de me contacter ?</h2>
             <p className="text-lg mb-8 opacity-90">
               N'hésitez pas à prendre rendez-vous pour une première consultation
             </p>
-            {/* Début du changement: Remplacement du composant Link par un tag <a> standard */}
             <a
               href="https://www.medoucine.com/consultation/suresnes/elisabeth-duchesne/4142"
               target="_blank"
@@ -151,7 +137,6 @@ export default function ProfilePage() {
               Réserver maintenant
               <ArrowRight size={18} />
             </a>
-            {/* Fin du changement */}
           </div>
         </section>
       </main>
